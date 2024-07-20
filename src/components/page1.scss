@@ -1,0 +1,66 @@
+.page1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .themebttn {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .theme-btn {
+    margin: 0.5rem;
+    border-radius: 30px;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 0 18px;
+    line-height: 32px;
+    width: 150px;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .light .theme-btn{
+      background-color: #fbeee0;
+      border: 2px solid #422800;
+      box-shadow: #422800 4px 4px 0 0;
+      color: #422800;
+  }
+  
+  .dark .theme-btn{
+      background-color: #1a1a1a; 
+      border: 2px solid rgb(223, 222, 222);
+      box-shadow: rgb(223, 222, 222) 4px 4px 0 0; 
+      color: #e0e0e0;
+  }
+  
+  .continue-btn {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+  
+  .dark .continue-btn{
+    color: #1a1a1a;
+    background-color: rgb(223, 222, 222);
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 600px) {
+    .themebttn {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .theme-btn {
+      margin: 0.5rem 0;
+    }
+  }
+  
