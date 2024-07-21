@@ -1,8 +1,12 @@
 import { CognitoUserPool } from "amazon-cognito-identity-js";
 
+
+const userpool = process.env.REACT_APP_USER_POOL;
+const clientid = process.env.REACT_APP_CLIENT_ID
+
 const poolData = {
-    UserPoolId: "YOUR-USER-POOL-ID",
-    ClientId: "YOUR-CLIENT-ID"
+    UserPoolId: userpool,
+    ClientId: clientid,
 
     
     // To use AWS Cognito for user authentication, follow these steps:
