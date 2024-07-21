@@ -11,7 +11,7 @@
     z-index: 1000;
   }
   
-  .login {
+  .login, .signup{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,26 +27,25 @@
     color: black;
   }
     
-  .login form {
+  .login form, .signup form{
     display: flex;
     flex-direction: column;
     width: 300px;
   }
     
-  .login label {
+  .login label, .signup label{
     margin-top: 15px;
     align-self: flex-start;
     text-align: left;
   }
   
-  .login label a{
+  .login label a, .signup label a{
     color: #09407c;
     font-size: smaller;
     font-weight: 600;
   }
   
-  .login input {
-    
+  .login input, .signup input{
     padding: 8px;
     border: 1px solid #363535;
     border-radius: 4px;
@@ -55,7 +54,7 @@
     color: black;
   }
   
-  .login .submit {
+  .login .submit, .signup .submit{
     margin-top: 10px;
     padding: 0.5rem;
     background-color: #09407c;
@@ -67,8 +66,12 @@
     width: 300px;
     align-self: center;
   }
+
+  .signup .submit{
+    margin-top: 34px;
+  }
   
-  .login .close-button {
+  .login .close-button, .signup .close-button{
     margin-top: 25px;
     background-color: transparent;
     color: #09407c;
@@ -79,7 +82,7 @@
     outline: none;
   }
   
-  .login label#text{
+  .login label#text, .signup label#text{
     align-self: flex-start;
   }
   

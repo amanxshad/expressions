@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Signup from './Signup';
 import Login from './login';
+import Forgot from './forgot';
 import './homepage.scss';
 import pic1 from '../pic1.jpg';
 import pic2 from '../pic2.JPG';
@@ -34,6 +35,10 @@ const Homepage = () => {
     setShowDialog('signup');
   };
 
+  const switchToForgot = () => {
+    setShowDialog('forgot');
+  };
+
   return (
     <div className="homepage-wrapper">
       <div className={`homepage ${blur ? 'blur' : ''}`}>
@@ -54,10 +59,12 @@ const Homepage = () => {
         </div>
       </div>
       {showDialog === 'signup' && <Signup onClose={handleCloseDialog} onSwitchToLogin={switchToLogin} />}
-      {showDialog === 'login' && <Login onClose={handleCloseDialog} onSwitchToSignup={switchToSignup} />}
+      {showDialog === 'login' && <Login onClose={handleCloseDialog} onSwitchToSignup={switchToSignup} onSwitchToForgot={switchToForgot}/>}
+      {showDialog === 'forgot' && <Forgot onClose={handleCloseDialog}  onSwitchToLogin={switchToLogin}/>}
     </div>
   );
 };
 
 export default Homepage;
+
 

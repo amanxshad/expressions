@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import UserPool from '../UserPool';
+import Status from './Status';
 import './Signup.scss';
 
 const Signup = ({ onClose, onSwitchToLogin }) => {
@@ -21,7 +22,8 @@ const Signup = ({ onClose, onSwitchToLogin }) => {
 
   return (
     <div className="login-overlay">
-      <div className="login">
+      <div className="signup">
+      <Status/>
         <form onSubmit={handleSubmit}>
           <label>
             Email
@@ -42,7 +44,6 @@ const Signup = ({ onClose, onSwitchToLogin }) => {
               onChange={(e) => setPassword(e.target.value)} 
               required 
             />
-            <a>Forgot Password?</a>
           </label>
           <button className="submit" type="submit">Sign in</button>
           <div className="or">
@@ -51,7 +52,7 @@ const Signup = ({ onClose, onSwitchToLogin }) => {
             <div className="line"></div>
           </div>
         </form>
-        <button className='google'><img alt='G'></img>Continue with Google</button>
+        <button className='google'><i class="fa-brands fa-google"></i> Continue with Google</button>
         <div className='create-acc'>Already have an account? <a onClick={onSwitchToLogin}>Login</a></div>
         <button className="close-button" onClick={onClose}>Continue without Signup</button>
       </div>
