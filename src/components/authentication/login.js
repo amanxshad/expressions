@@ -1,28 +1,25 @@
-import React, { useState } from 'react';
-import UserPool from '../UserPool';
+import React, { useState, useContext } from 'react';
+import { AccountContext } from './account';
 import Status from './Status';
 import './Signup.scss';
 
-const Signup = ({ onClose, onSwitchToLogin }) => {
+const Login = ({ onClose, onSwitchToSignup, onSwitchToForgot }) => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { authenticate } = useContext(AccountContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle authentication here
-
-    UserPool.signUp(email, password, [], null, (err, data) => {
-      if(err){
-        alert(err);
-      }
-      console.log(data);
-    })
+    authenticate(email, password)
+      .then(data => { console.log("Logged in", data); })
+      .catch(err => { alert("Failed to login", err); })
   };
 
   return (
     <div className="login-overlay">
-      <div className="signup">
+      <div className="login">
       <Status/>
         <form onSubmit={handleSubmit}>
           <label>
@@ -44,20 +41,21 @@ const Signup = ({ onClose, onSwitchToLogin }) => {
               onChange={(e) => setPassword(e.target.value)} 
               required 
             />
+            <a onClick={onSwitchToForgot}>Forgot Password?</a>
           </label>
-          <button className="submit" type="submit">Sign in</button>
+          <button className="submit" type="submit">Login</button>
           <div className="or">
             <div className="line"></div>
             <div className="or-text">or</div>
             <div className="line"></div>
           </div>
         </form>
-        <button className='google'><i class="fa-brands fa-google"></i> Continue with Google</button>
-        <div className='create-acc'>Already have an account? <a onClick={onSwitchToLogin}>Login</a></div>
-        <button className="close-button" onClick={onClose}>Continue without Signup</button>
+        <button className='google'><i className="fa-brands fa-google"></i> Continue with Google</button>
+        <div className='create-acc'>Don't have an account? <a onClick={onSwitchToSignup}>Sign up</a></div>
+        <button className="close-button" onClick={onClose}>Continue without login</button>
       </div>
     </div>
   );
 };
 
-export default Signup;
+export default Login;
