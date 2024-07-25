@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Signup from './Signup';
-import Login from './login';
-import Forgot from './forgot';
+import Signup from './authentication/Signup';
+import Login from './authentication/login';
+import Forgot from './authentication/forgot';
 import './homepage.scss';
 import pic1 from '../pic1.jpg';
 import pic2 from '../pic2.JPG';
