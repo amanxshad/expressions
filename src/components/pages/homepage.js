@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import Signup from './authentication/Signup';
-import Login from './authentication/login';
-import Forgot from './authentication/forgot';
+import { useNavigate } from 'react-router-dom';
+import Signup from '../authentication/Signup';
+import Login from '../authentication/login';
+import Forgot from '../authentication/forgot';
 import './homepage.scss';
-import pic1 from '../pic1.jpg';
-import pic2 from '../pic2.JPG';
+import pic1 from '../../pic1.jpg';
+import pic2 from '../../pic2.jpg';
 
 const Homepage = () => {
+  const navigate = useNavigate();
   const [showDialog, setShowDialog] = useState(null);
   const [blur, setBlur] = useState(false);
 
@@ -45,9 +47,9 @@ const Homepage = () => {
         <header>
           <nav>
             <ul>
-              <li><a href="/">Home</a></li>
-              <li><a>About</a></li>
-              <li><a>Contact</a></li>
+              <li onClick={() => navigate('/')}>Home</li>
+              <li>About</li>
+              <li>Contact</li>
             </ul>
           </nav>
         </header>
