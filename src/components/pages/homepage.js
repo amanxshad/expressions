@@ -5,7 +5,7 @@ import Login from '../authentication/login';
 import Forgot from '../authentication/forgot';
 import './homepage.scss';
 import pic1 from '../../pic1.jpg';
-import pic2 from '../../pic2.jpg';
+import pic2 from '../../pic.jpg';
 
 const Homepage = () => {
   const navigate = useNavigate();
