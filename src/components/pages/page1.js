@@ -1,8 +1,8 @@
 // Page1.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useTheme } from './ThemeToggle';
-import Logo from './Logo';
+import { useTheme } from '../ThemeToggle';
+import Logo from '../Logo';
 import './page1.scss';
 
 function Page1() {
