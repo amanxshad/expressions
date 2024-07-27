@@ -1,10 +1,17 @@
+/* App.css */
 .page1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
-  
+
 .themebttn {
+  position: absolute;
+  bottom: 35vmin;
   display: flex;
   justify-content: center;
   margin-bottom: 1rem;
@@ -25,31 +32,63 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-}
-  
-.light .theme-btn{
-    background-color: #fbeee0;
-    border: 2px solid #422800;
-    box-shadow: #422800 4px 4px 0 0;
-    color: #422800;
+  transition: translate(0,-100px) opacity 2s ease;
 }
 
-.dark .theme-btn{
-    background-color: #1a1a1a; 
-    border: 2px solid rgb(223, 222, 222);
-    box-shadow: rgb(223, 222, 222) 4px 4px 0 0; 
-    color: #e0e0e0;
+
+.light .theme-btn {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+}
+
+.dark .theme-btn {
+  background-color: #1a1a1a;
+  border: 2px solid rgb(223, 222, 222);
+  box-shadow: rgb(223, 222, 222) 4px 4px 0 0;
+  color: #e0e0e0;
 }
 
 .continue-btn {
   margin-top: 1rem;
   padding: 0.5rem 1rem;
-  font-size: 1rem;
+  font-size: 0.7rem;
+  position: absolute;
+  bottom: 28vmin;
+  background: none;
+  color: rgb(72, 70, 70);
+  opacity: 0;
 }
-  
-.dark .continue-btn{
-  color: #1a1a1a;
-  background-color: rgb(223, 222, 222);
+
+h3.continue-text{
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.7rem;
+  position: absolute;
+  bottom: 27vmin;
+  font-weight: 300;
+  background: none;
+  color: rgb(72, 70, 70);
+  transition: translate(0,-100px) opacity 2s ease;
+}
+
+.dark .continue-btn {
+  color: whitesmoke;
+}
+
+.theme-btn.visible, .continue-text.visible{
+  opacity: 0;
+}
+
+.continue-btn.visible.moveB{
+  opacity: 1;
+  transform: none;
+  transition: opacity 5s ease;
+}
+
+.continue-btn.visible.moveB.moveC{
+  opacity: 1;
 }
 
 /* Responsive styles */
@@ -64,9 +103,360 @@
   }
 }
 
-canvas {
-  display: block; /* Remove any default padding or margin */
-  width: 10vw;
-  height: 20vh;
+.circle {
+  position: absolute;
+  width: 10vmax; //10vw
+  height: 10vmax;
+  border-radius: 50%;
+  transition: all 2s ease;
 }
-  
+
+.semicircle-left {
+  position: absolute;
+  width: 7vmax;
+  height: 13vmax;
+  border-bottom-left-radius: 100px;
+  border-top-left-radius: 100px;
+}
+
+.semicircle-right {
+  position: absolute;
+  width: 7vmax;
+  height: 13vmax;
+  border-bottom-right-radius: 100px;
+  border-top-right-radius: 100px;
+}
+
+.quarter-right {
+  position: absolute;
+  width: 7vmax;
+  height: 7vmax;
+  border-bottom-right-radius: 100px;
+}
+
+.quarter-right-up {
+  position: absolute;
+  width: 7vmax;
+  height: 7vmax;
+  border-top-right-radius: 100px;
+}
+
+.quarter-left {
+  position: absolute;
+  width: 7vmax;
+  height: 7vmax;
+  border-top-left-radius: 100px;
+}
+
+/* Define speed for blue circles */
+.blue {
+  background-color: blue;
+  transform: scale(0.9);
+  transition-duration: 2.3s; /* Fast movement */
+}
+
+/* Define speed for red circles */
+.red {
+  background-color: red;
+  transform: scale(0.9);
+  transition-duration: 3s; /* Slow movement */
+}
+
+.black {
+  background-color: #1a1a1a;
+  transform: scale(0.9);
+  transition-duration: 3s;
+  z-index: 2;
+}
+
+.dark .black{
+  background-color: wheat;
+  border-color: #1a1a1a;
+}
+
+.top-left {
+  top: 0;
+  left: 0;
+}
+
+.top-right {
+  top: 0;
+  right: 0;
+}
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+.moveB {
+  transform: translate(-92.5vw , 103.7vh) scale(1.05) //  transform: translate(-92vw , 105vh) scale(1.05);
+}
+
+.moveC {
+  transform: translate(-185vw , 207vh) scale(1.05) !important//  transform: translate(-92vw , 105vh) scale(1.05);
+}
+
+/* Position red circles off-screen */
+.red.top-left {
+  top: -102vh;
+  left: 93vw;
+}
+
+.red.bottom-right {
+  top: -22vh;
+  left: 182vw;
+}
+
+.red.bottom-left {
+  top: -22vh;
+  left: 93vw;
+}
+
+.red.top-right {
+  top: -102vh;
+  left: 182vw;
+}
+
+/* position animation1 image divs */
+.logo{
+  position: absolute;
+    display: flex;
+    flex-direction: row;
+    top: 27vh;
+    width: 25vmax;
+    height: 13vh;
+    justify-content: space-evenly;
+    transform: scale(0.9) translateX(-1.2vmax);
+}
+
+.logo-one{
+  position: absolute;
+  width: 4vmax;
+  height: 10vmax;
+  top: 2px;
+  left: 5vmax;
+  z-index: 3;
+}
+.logo-one.moveA{
+  transform: translate(-30vw, 15vh) scale(1.2);
+  transition-duration: 0.5s;
+}
+
+
+.logo-two{
+  position: absolute;
+  border: 3px solid rgb(245, 238, 221);
+  z-index: 2;
+}
+.logo-two.moveA{
+  transform: translate(0vw, -3vh) scale(1.2);;
+  transition-duration: 0.5s;
+}
+
+
+.logo-three{
+  position: absolute;
+  right: 1vw;
+  border: 3px solid rgb(245, 238, 221);
+  z-index: 1;
+}
+.logo-three.moveA{
+  transform: translate(25vw, 32vh) scale(1.2);;
+  transition-duration: 0.5s;
+}
+
+
+.button.text-one{
+  position: absolute;
+  left: 26vw;
+  top: 54vh;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 2s ease, visibility 1s ease;
+}
+.button.text-two{
+  position: absolute;
+  left: 62vw;
+  top: 33vh;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 2s ease, visibility 1s ease;
+}
+.button.text-three{
+  position: absolute;
+  left: 65vw;
+  top: 65vh;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 2s ease, visibility 1s ease;
+}
+
+.button.text-one.visible, .button.text-two.visible, .button.text-three.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+@media (max-width: 600px) {
+  .logo-one.moveA{
+    transform: translate(-16vw, 0vh) scale(1.2);
+    transition-duration: 0.5s;
+  }
+  .logo-two.moveA{
+    transform: translate(-27vw, 25vh) scale(1.2);
+    transition-duration: 0.5s;
+  }
+  .logo-three.moveA{
+    transform: translate( calc(-26vw - 7vh), 50vh) scale(1.2);
+    transition-duration: 0.5s;
+  }
+  .button.text-one{
+    left: 55vw;
+    top: 33vh;
+  }
+  .button.text-two{
+    left: 55vw;
+    top: 55vh;
+  }
+  .button.text-three{
+    left: 55vw;
+    top: 78vh;
+  }
+}
+
+.logo-one.moveA.moveB, 
+.logo-two.moveA.moveB, 
+.logo-three.moveA.moveB, 
+.button.text-one.visible.moveB, 
+.button.text-two.visible.moveB, 
+.button.text-three.visible.moveB {
+  transform: translate(-92.5vw , 103.7vh);
+  transition-duration: 3s;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* position animation2 image divs */
+.one {
+  top: -118vh;
+  left: 93vw;
+}
+.one.moveB{
+  transform: translate(-92.5vw , 103.7vh) scale(1.3);
+}
+
+
+.two{
+  top: -116vh;
+  left: 108vw;
+  transition-duration: 5s;
+}
+.two.moveB{
+  transform: translate(-92.5vw , 103.7vh) scale(1.5);
+}
+
+
+.three{
+  top: -85vh;
+  left: 90vw;
+}
+
+
+.four{
+  top: -74.4vh;
+  left: 98vw;
+}
+
+
+.five {
+  top: -49vh;
+  left: 100vw;
+}
+.five.moveB{
+  transform: translate(-92.5vw , 103.7vh) scale(1.6); 
+}
+
+
+.six{
+  top: -17vh;
+  left: 102vw;
+}
+.six.moveB{
+  transform: translate(-94.5vw , 103.7vh) scale(1.2); 
+  transition-duration: 4s;
+}
+
+
+.seven{
+  top: -16vh;
+  left: 113vw;
+}
+.seven.moveB{
+  transform: translate(-92.5vw , 103.7vh) scale(1.3); 
+  transition-duration: 4s;
+}
+
+
+.eight{
+  top: -112vh;
+  left: 168vw;
+}
+.eight.moveB{
+  transform: translate(-92.5vw , 103.7vh) scale(1.4);
+}
+
+
+.nine{
+  top: -85vh;
+  left: 186vw;
+}
+.nine.moveB{
+  transform: translate(-92.5vw , 103.7vh) scale(1.6);
+}
+
+.ten{
+  position: absolute;
+  width: 4.6vmax;
+  height: 13vmax;
+  top: -50vh;
+  left: 178vw;
+}
+
+.eleven{
+  top: -50vh;
+  left: 183.5vw;
+}
+
+
+.twelve{
+  top: -10vh;
+  left: 168vw;
+}
+.twelve.moveB{
+  transform: translate(-92.5vw , 103.7vh) scale(1.4);
+}
+
+
+.thirteen{
+  top: -10vh;
+  left: 181.5vw;
+}
+.thirteen.moveB{
+  transform: translate(-92.5vw , 103.7vh) scale(1.4);
+}
+
+.button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
