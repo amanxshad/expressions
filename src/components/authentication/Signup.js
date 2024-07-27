@@ -23,7 +23,6 @@ const Signup = ({ onClose, onSwitchToLogin }) => {
   return (
     <div className="login-overlay">
       <div className="signup">
-      <Status/>
         <form onSubmit={handleSubmit}>
           <label>
             Email
