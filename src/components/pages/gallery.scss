@@ -43,7 +43,7 @@ nav {
     z-index: 999;
 }
 
-nav button{
+nav button {
     padding: 10px 15px;
     text-decoration: none;
     color: white;
@@ -87,16 +87,50 @@ button.members{
     filter: grayscale(100%) brightness(0) contrast(100%);
 }
 
-input.search-bar{
+nav button.search-button {
+    z-index: 1000;
+}
+
+div.hidden-search-bar{
+    position: absolute;
+    align-self: center;
+    justify-self: center;
+    width: 320px;
+}
+
+input.search-bar {
     position: absolute;
     visibility: hidden;
-    width: 40%;
+    width: 0;
     padding: 15px;
     border-radius: 30px;
     border: none;
     outline: none;
     font-weight: 500;
-    background: rgb(128, 128, 128, 0.2);
+    background: rgb(60, 60, 60);
+    transition: width 0.3s ease, visibility 0.3s ease;
+    right: 0vw;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+input.search-bar.show {
+    visibility: visible;
+    width: 295px; 
+}
+
+button.close-search, button.close-search:hover{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-50%) translateX(-30px) rotate(700deg);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+button.close-search.show{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(-205px);
 }
 
 .grid-container {
@@ -105,9 +139,9 @@ input.search-bar{
     columns: 7;
     column-gap: 12px;
     width: 100%;
-    max-width: 100%; /* Prevents overflow */
+    max-width: 100%; 
     padding: 0 10px;
-    box-sizing: border-box; /* Includes padding in width calculations */
+    box-sizing: border-box; 
     z-index: 995;
 }
 

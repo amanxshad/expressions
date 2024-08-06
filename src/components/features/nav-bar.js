@@ -6,6 +6,16 @@ function Navbar() {
     const navigate = useNavigate();
     const location = useLocation();
     const [activeButton, setActiveButton] = useState('/gallery');
+    const [showSearch, setShowSearch] = useState(false);
+
+    const handleSearchClick = () => {
+        setShowSearch(!showSearch);
+    };
+
+    const handleSearchHide = () => {
+        if(showSearch === true)
+        { setShowSearch(!showSearch); }
+    };
 
     useEffect(() => {
         setActiveButton(location.pathname);
@@ -41,8 +51,17 @@ function Navbar() {
                 >
                 Shop
                 </button>
-                <button>Search</button>
-                <input type='text' placeholder='Search' className='search-bar' />
+                <button onClick={handleSearchClick} className='search-button'>
+                Search
+                </button>
+                <div className='hidden-search-bar'>
+                <button onClick={handleSearchHide} className={`close-search ${showSearch ? 'show' : ''}`}><i className="fa-solid fa-xmark"></i></button>
+                <input
+                    type='text'
+                    placeholder='Search'
+                    className={`search-bar ${showSearch ? 'show' : ''}`}
+                />
+                </div>
                 <button className='members'>Members</button>
             </nav>
         </div>
