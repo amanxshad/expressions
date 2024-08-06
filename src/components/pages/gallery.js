@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Signup from '../authentication/Signup';
 import Login from '../authentication/login';
 import Forgot from '../authentication/forgot';
-import './homepage.scss';
+import Navbar from '../features/nav-bar';
+import './gallery.scss';
 import pic1 from '../../pic1.jpg';
 import pic2 from '../../pic.jpg';
 
-const Homepage = () => {
-  const navigate = useNavigate();
+
+const Gallery = () => {
   const [showDialog, setShowDialog] = useState(null);
   const [blur, setBlur] = useState(false);
 
@@ -42,21 +42,13 @@ const Homepage = () => {
   };
 
   return (
-    <div className="homepage-wrapper">
-      <div className={`homepage ${blur ? 'blur' : ''}`}>
-        <header>
-          <nav>
-            <ul>
-              <li onClick={() => navigate('/')}>Home</li>
-              <li>About</li>
-              <li>Contact</li>
-            </ul>
-          </nav>
-        </header>
+    <div className="Gallery-wrapper">
+      <div className={`Gallery ${blur ? 'blur' : ''}`}>
+        <Navbar/>
         <br></br>
         <div className="grid-container">
-          {Array.from({ length: 47 }).map((_, index) => (
-            <img key={index} src={index % 2 === 0 ? pic2 : pic1} alt="grid item" />
+          {Array.from({ length: 49 }).map((_, index) => (
+            <div className='box'><img key={index} src={index % 2 === 0 ? pic2 : pic1} alt="grid item" /></div>
           ))}
         </div>
       </div>
@@ -67,6 +59,6 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+export default Gallery;
 
 

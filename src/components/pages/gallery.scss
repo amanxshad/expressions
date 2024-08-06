@@ -1,0 +1,137 @@
+.homepage-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.homepage {
+    align-self: flex-start;
+    width: 100%;
+}
+
+.homepage.blur {
+    filter: blur(3px);
+}
+
+header{
+    background-color: rgb(18, 22, 23);
+    height: 71px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 998;
+}
+
+.light header{
+    background-color: rgb(245, 238, 221);
+}
+  
+nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 16px 0;
+    overflow: hidden;
+    background: none;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+nav button{
+    padding: 10px 15px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: small;
+    border-radius: 20px;
+    background: none;
+}
+
+.light nav button:not(.members):not(.active){
+    color: black;
+}
+
+nav button.active{
+    color: rgb(219, 50, 32);
+    font-weight: 600;
+}
+
+nav button:hover{
+    transform: scale(1.04);
+}
+
+button.logo-txt{
+    position: absolute;
+    left: 40px;
+}
+
+button.members{
+    position: absolute;
+    right: 40px;
+    padding: 10px 25px;
+    background-color: black;
+    color: white;
+}
+
+.logo-txt img{
+    height: 29px;
+}
+
+.light .logo-txt img{
+    filter: grayscale(100%) brightness(0) contrast(100%);
+}
+
+input.search-bar{
+    position: absolute;
+    visibility: hidden;
+    width: 40%;
+    padding: 15px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    font-weight: 500;
+    background: rgb(128, 128, 128, 0.2);
+}
+
+.grid-container {
+    position: relative;
+    margin-top: 80px;
+    columns: 7;
+    column-gap: 12px;
+    width: 100%;
+    max-width: 100%; /* Prevents overflow */
+    padding: 0 10px;
+    box-sizing: border-box; /* Includes padding in width calculations */
+    z-index: 995;
+}
+
+.grid-container .box{
+    width: 100%;
+    margin-top: 5px;
+    break-inside: avoid;
+}
+
+.grid-container img {
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
+    border-radius: 16px;
+}
+
+@media (max-width: 1040px){
+    .grid-container{
+        columns: 5;
+    }
+}
+
+@media (max-width: 600px){
+    .grid-container{
+        columns: 2;
+    }
+}

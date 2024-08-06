@@ -1,9 +1,9 @@
 // Page1.js
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useTheme } from '../ThemeToggle';
+import { useTheme } from '../features/ThemeToggle';
 
-import './page1.scss';
+import './intro.scss';
 
 function Page1() {
   const navigate = useNavigate();
@@ -63,29 +63,29 @@ function Page1() {
         <button onClick={() => toggleTheme('dark')} className={`theme-btn ${moveLogo ? 'visible' : ''}`}>Dark</button>
         <button onClick={() => toggleTheme('light')} className={`theme-btn ${moveLogo ? 'visible' : ''}`}>Light</button>
       </div>
-      <h3 className={`continue-text ${moveLogo ? 'visible' : ''}`}>Click anywhere to Continue</h3>
+      <h3 className={`continue-text ${moveLogo ? ' moveB' : ''}`}>Click anywhere to Continue</h3>
 
 
       {/* page shift animation */}
       {/* RedCircles are elements that appear after page shift */}
-      <div class={`semicircle-right one black top-left ${moveRedCircles ? 'moveB' : ''} ${moveFinal ? 'moveC' : ''}`}></div>
+      <div className={`semicircle-right one black top-left ${moveRedCircles ? 'moveB' : ''} ${moveFinal ? 'moveC' : ''}`}></div>
       <div className={`circle black two top-left ${moveRedCircles ? 'moveB' : ''} ${moveFinal ? 'moveC' : ''}`}></div>
-      <div class={`semicircle-left three black top-left ${moveRedCircles ? 'moveB' : ''} ${moveFinal ? 'moveC' : ''}`}></div>
-      <div class={`quarter-right four black top-left ${moveRedCircles ? 'moveB' : ''} ${moveFinal ? 'moveC' : ''}`}></div>
+      <div className={`semicircle-left three black top-left ${moveRedCircles ? 'moveB' : ''} ${moveFinal ? 'moveC' : ''}`}></div>
+      <div className={`quarter-right four black top-left ${moveRedCircles ? 'moveB' : ''} ${moveFinal ? 'moveC' : ''}`}></div>
       <div className={`circle black five bottom-left ${moveRedCircles ? 'moveB' : ''} ${moveFinal ? 'moveC' : ''}`}></div>
-      <div class={`semicircle-right six black top-left ${moveRedCircles ? 'moveB' : ''} ${moveFinal ? 'moveC' : ''}`}></div>
-      <div class={`quarter-left seven black top-left ${moveRedCircles ? 'moveB' : ''} ${moveFinal ? 'moveC' : ''}`}></div>
+      <div className={`semicircle-right six black top-left ${moveRedCircles ? 'moveB' : ''} ${moveFinal ? 'moveC' : ''}`}></div>
+      <div className={`quarter-left seven black top-left ${moveRedCircles ? 'moveB' : ''} ${moveFinal ? 'moveC' : ''}`}></div>
 
       <div className={`circle black eight top-right ${moveRedCircles ? 'moveB' : ''} ${moveFinal ? 'moveC' : ''}`}></div>
       <div className={`circle black nine top-right ${moveRedCircles ? 'moveB' : ''} ${moveFinal ? 'moveC' : ''}`}></div>
       <div className={`black ten top-right ${moveRedCircles ? 'moveB' : ''} ${moveFinal ? 'moveC' : ''}`}></div>
-      <div class={`quarter-right-up eleven black top-left ${moveRedCircles ? 'moveB' : ''} ${moveFinal ? 'moveC' : ''}`}></div>
+      <div className={`quarter-right-up eleven black top-left ${moveRedCircles ? 'moveB' : ''} ${moveFinal ? 'moveC' : ''}`}></div>
       <div className={`circle black twelve bottom-right ${moveRedCircles ? 'moveB' : ''} ${moveFinal ? 'moveC' : ''}`}></div>
-      <div class={`semicircle-right thirteen black top-left ${moveRedCircles ? 'moveB' : ''} ${moveFinal ? 'moveC' : ''}`}></div>
+      <div className={`semicircle-right thirteen black top-left ${moveRedCircles ? 'moveB' : ''} ${moveFinal ? 'moveC' : ''}`}></div>
 
 
 
-      <button onClick={() => {finalClick(); setTimeout(() => navigate('/page2'), 1800)}} className={`continue-btn ${moveLogo ? 'visible' : ''} ${moveRedCircles ? 'moveB' : ''} `}>Continue</button>
+      <button onClick={() => {finalClick(); setTimeout(() => navigate('/gallery'), 1800)}} className={`continue-btn ${moveLogo ? 'visible' : ''} ${moveRedCircles ? 'moveB' : ''} `}>Continue</button>
     </div>
   );
 }

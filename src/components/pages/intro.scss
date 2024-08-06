@@ -59,6 +59,7 @@
   background: none;
   color: rgb(72, 70, 70);
   opacity: 0;
+  z-index: 995;
 }
 
 h3.continue-text{
@@ -70,14 +71,14 @@ h3.continue-text{
   font-weight: 300;
   background: none;
   color: rgb(72, 70, 70);
-  transition: translate(0,-100px) opacity 2s ease;
+  z-index: 999;
 }
 
 .dark .continue-btn {
   color: whitesmoke;
 }
 
-.theme-btn.visible, .continue-text.visible{
+.theme-btn.visible{
   opacity: 0;
 }
 
