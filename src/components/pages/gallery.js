@@ -6,6 +6,7 @@ import Navbar from '../features/nav-bar';
 import './gallery.scss';
 import pic1 from '../../pic1.jpg';
 import pic2 from '../../pic.jpg';
+import pic3 from '../../pic3.jpg';
 
 
 const Gallery = () => {
@@ -48,7 +49,7 @@ const Gallery = () => {
         <br></br>
         <div className="grid-container">
           {Array.from({ length: 49 }).map((_, index) => (
-            <div className='box'><img key={index} src={index % 2 === 0 ? pic2 : pic1} alt="grid item" /></div>
+            <div className='box'><img key={index} src={index % 3 === 0 ? pic2 : index % 2 === 0 ? pic1 : pic3 } alt="grid item" /></div>
           ))}
         </div>
       </div>
