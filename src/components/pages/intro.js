@@ -9,17 +9,20 @@ function Page1() {
   const navigate = useNavigate();
   const { toggleTheme } = useTheme();
   const [moveLogo, setMoveLogo] = useState(false);
+  const [textDelay, setTextDelay]= useState(false);
   const [moveCircles, setMoveCircles] = useState(false);
   const [moveRedCircles, setMoveRedCircles] = useState(false);
   const [moveFinal, setMoveFinal] = useState(false);
 
   const handleClick2 = () => {
     setMoveCircles(true);
+    setTextDelay(false);
     setTimeout(() => setMoveRedCircles(true), 1700); // Delay red circles' movement to allow blue circles to move first
   };
 
   const handleClick1 = () => {
     setMoveLogo(true);
+    setTimeout(() => setTextDelay(true), 500);
   }
 
   const finalClick = () => {
@@ -49,13 +52,41 @@ function Page1() {
 
       {/* logo split animation */}
       <div className={`logo ${moveLogo ? 'moveA' : ''}`} >
-      <div className={`black logo-one ${moveLogo ? 'moveA' : ''} ${moveCircles ? 'moveB' : ''}`}></div>
-      <div className={`circle black logo-two ${moveLogo ? 'moveA' : ''} ${moveCircles ? 'moveB' : ''}`}></div>
-      <div className={`circle black logo-three ${moveLogo ? 'moveA' : ''} ${moveCircles ? 'moveB' : ''}`}></div>
+
+        <div className={`L1 ${moveLogo ? 'moveA' : ''}`}>
+          <div className={`black logo-one ${moveLogo ? 'moveA' : ''} ${moveCircles ? 'moveB' : ''}`}></div>
+          {textDelay ? (
+              <button onClick={handleClick2} className={`button text-one ${textDelay ? 'appear' : ''} ${moveCircles ? 'moveB' : ''}`}>
+                  VISIT <br />SHOP
+              </button>
+          ) : null}
+        </div>
+
+        <div className={`L2 ${moveLogo ? 'moveA' : ''}`}>
+          <div className={`circle black logo-two ${moveLogo ? 'moveA' : ''} ${moveCircles ? 'moveB' : ''}`}></div>
+          {textDelay ? (
+              <button onClick={handleClick2} className={`button text-two ${textDelay ? 'appear' : ''} ${moveCircles ? 'moveB' : ''}`}>
+                  VIRTUAL <br />GALLERY
+              </button>
+          ) : null}
+        </div>
+
+        <div className={`L3 ${moveLogo ? 'moveA' : ''}`}>
+        {textDelay ? (
+              <button onClick={handleClick2} className={`button text-three ${textDelay ? 'appear' : ''} ${moveCircles ? 'moveB' : ''}`}>
+                  MEMBER <br />LOGIN
+              </button>
+          ) : null}
+          <div className={`circle black logo-three ${moveLogo ? 'moveA' : ''} ${moveCircles ? 'moveB' : ''}`}></div>
+        </div>
       </div>
-      <button onClick={handleClick2} className={`button text-one ${moveLogo ? 'visible' : ''} ${moveCircles ? 'moveB' : ''}`}>Visit Shop</button>
-      <button onClick={handleClick2} className={`button text-two ${moveLogo ? 'visible' : ''} ${moveCircles ? 'moveB' : ''}`}>Virtual Gallery</button>
-      <button onClick={handleClick2} className={`button text-three ${moveLogo ? 'visible' : ''} ${moveCircles ? 'moveB' : ''}`}>Member Login</button>
+
+      {textDelay ? (
+        <div className='info'>
+        <p className='one'>"<hr></hr></p>
+        <p className='two'>10 years of creativity,<br/> brilliance, legacy and love.</p>
+        </div>
+      ) : null }
 
 
       {/* Dark Light theme buttons */}
